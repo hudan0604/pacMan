@@ -74,14 +74,62 @@ export class AppComponent {
 
     drawMap() {
         this.board_ctx.fillStyle = 'black'
-        this.board_ctx.strokeStyle = 'pink'
+        this.board_ctx.strokeStyle = '#ff9933'
         this.board_ctx.lineWidth = 4
-        this.board_ctx.fillRect(0, 0, this.board.width, this.board.height)
-        this.board_ctx.strokeRect(0, 0, this.board.width, this.board.height)
+
+        this.board_ctx.beginPath()
+        this.board_ctx.roundRect(0, 0, this.board.width, this.board.height, [
+            22,
+        ])
+        this.board_ctx.fill()
+        this.board_ctx.stroke()
+
+        this.board_ctx.beginPath()
         this.board_ctx.strokeStyle = 'rgb(141, 230, 246)'
+
+        // Upper part
+        // Move to middle of left border
         this.board_ctx.moveTo(0, 350)
-        this.board_ctx.lineTo(5, 350)
-        this.board_ctx.lineWidth = 2
+        this.board_ctx.lineTo(15, 350)
+        this.board_ctx.lineTo(15, 15)
+        this.board_ctx.lineTo(300, 15)
+        this.board_ctx.moveTo(300, 0)
+        this.board_ctx.lineTo(300, 65)
+
+        this.board_ctx.moveTo(350, 0)
+        this.board_ctx.lineTo(350, 15)
+        this.board_ctx.lineTo(450, 15)
+        this.board_ctx.lineTo(450, 0)
+
+        this.board_ctx.moveTo(500, 0)
+        this.board_ctx.lineTo(500, 65)
+        this.board_ctx.moveTo(500, 15)
+
+        this.board_ctx.lineTo(785, 15)
+        this.board_ctx.lineTo(785, 350)
+        this.board_ctx.lineTo(800, 350)
+
+        // Lower part
+        this.board_ctx.moveTo(0, 450)
+        this.board_ctx.lineTo(15, 450)
+        this.board_ctx.lineTo(15, 785)
+        this.board_ctx.lineTo(300, 785)
+        this.board_ctx.lineTo(300, 800)
+
+        this.board_ctx.moveTo(350, 800)
+        this.board_ctx.lineTo(350, 785)
+        this.board_ctx.lineTo(450, 785)
+        this.board_ctx.lineTo(450, 800)
+
+        this.board_ctx.moveTo(500, 800)
+        this.board_ctx.lineTo(500, 785)
+        this.board_ctx.lineTo(785, 785)
+        this.board_ctx.lineTo(785, 450)
+        this.board_ctx.lineTo(800, 450)
+
+        // Inner shapes
+
+        this.board_ctx.lineWidth = 6
         this.board_ctx.stroke()
     }
 }
